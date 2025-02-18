@@ -5,5 +5,6 @@ Absentees: none
 Time: 13:00 - 14:00
 Date: 14/02/2025   
 
-Firstly we reviewed the tasks assigned to each team member
-Plan For Next Week: to review progress of each team member, as well as evaluate any changes needing to be made.
+Firstly we reviewed the tasks assigned to each team member, we made a few small changes and ammendments to the SRS and SDD document.
+After the changes, we completed the SRS and SDD and sent them to the client, we also have made significant progress with the use case and UML 
+diagrams as well as the class diagrams, by next week we want to have completed the use case, UML and class diagrams.
