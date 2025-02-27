@@ -1,0 +1,11 @@
+Meeting 5:
+Host: Qais Javed
+Participants: Abdul Qadeer, Mohammad Saif Ullah, Daniyal Ahmed, Saadia Al, Haidar Ali Malik, Ghuffran Ghufran
+Absentees: none
+Time: 13:00 - 14:00
+Date: 17/02/2025   
+
+We completed the use case, UML and class diagrams
+Firstly we reviewed the tasks assigned to each team member, we made a few small changes and ammendments to the SRS and SDD document.
+After the changes, we completed the SRS and SDD and sent them to the client, we also have made significant progress with the use case and UML 
+diagrams as well as the class diagrams, by next week we want to have completed the use case, UML and class diagrams.
