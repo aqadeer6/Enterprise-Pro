@@ -1,11 +1,9 @@
 Meeting 5:
 Host: Qais Javed
-Participants: Abdul Qadeer, Mohammad Saif Ullah, Daniyal Ahmed, Saadia Al, Haidar Ali Malik, Ghuffran Ghufran
+Participants: Abdul Qadeer, Mohammad Saif Ullah, Daniyal Ahmed, Saadia Ali, Haidar Ali Malik, Ghuffran Ghufran
 Absentees: none
 Time: 13:00 - 14:00
 Date: 17/02/2025   
 
-We completed the use case, UML and class diagrams
-Firstly we reviewed the tasks assigned to each team member, we made a few small changes and ammendments to the SRS and SDD document.
-After the changes, we completed the SRS and SDD and sent them to the client, we also have made significant progress with the use case and UML 
-diagrams as well as the class diagrams, by next week we want to have completed the use case, UML and class diagrams.
+Saif and Haider finalised the SRS document and Qais, Saadia and Daniyal have made significant progress in developing the SDD document by completing the introduction, functional requirements such as User authentication and non- functional requirements. Ghuffran and Qadeer have started their contribution to the front end development by creating a home login page and choosing a colour scheme.
+Next week we will look to build on the progress and summarise and explain to the team what we need to do expand on.
