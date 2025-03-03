@@ -4,3 +4,17 @@ Participants: Qais Javed, Mohammad Saif Ullah, Daniyal Ahmed, Saadia Ali, Haidar
 Absentees: none
 Time: 15:00 - 16:00
 Date: 20/02/2025  
+
+
+Ghuffran and Qadeer made significant progress on the front end of the website, they developed a fully functioning 
+login and sign up page , they also added user authentification features such as the email verification of users.
+Daniyal and Qais have kept the gant chart upto date and have ensured its completion 
+Haider and Saif, after some intensive research, have started working on the backend of the website.
+
+
+
+
+
+
+
+
