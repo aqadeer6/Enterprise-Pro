@@ -1,0 +1,17 @@
+Meeting 7:
+Host: Haider Ali Malik
+Participants: Qais Javed, Mohammad Saif Ullah, Daniyal Ahmed, Saadia Ali, Abdul Qadeer, Muhammad Ghufran
+Absentees: none
+Time: 16:00 - 17:00
+Date: 22/02/2025  
+
+Ghuffran and Qadeer Continued refining the user interface and user experience of the login, signup, and admin pages.
+Start implementing features such as form validation, password recovery, and email verification for the login/signup pages, and added disability features (text-to-speech) 
+
+Daniyal , Qais And Sadia Review the Gantt chart to ensure milestones and deadlines are still on track.
+Update the chart based on any adjustments or new tasks that arise.
+Cleaned up Use case and Class diagrams as they were missing some details from previous work. 
+
+Haider and Saif Began setting up the server environment and database.
+Develop basic API endpoints for the login and signup functionality.
+Work on connecting the back-end with the front-end to ensure that data flows smoothly between the two.
