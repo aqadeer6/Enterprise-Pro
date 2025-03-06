@@ -1,1 +1,31 @@
+Meeting 8:
+Host: Mohammad Saif Ullah
+Participants: Qais Javed, Haider Ali Malik, Daniyal Ahmed, Saadia Ali, Abdul Qadeer, Muhammad Ghufran
+Absentees: none
+Time: 15:00 - 16:30
+Date: 25/02/2025  
+
+Qadeer and Ghufran had completed with their work on the front end and felt that the interface had met the standerds, as well as 
+the clients contract requirments. all the features were reviewed by the team collectively until we were satisfied with the progress.
+
+
+the team collectively reviewed the deadlines ansd milestones as provided on the gant chart, we evaluated the outlines for tasks,
+and concluded that the plan of action and progress of tasks was very much on track. as well as completing the gant chart, Daniyal, Qais and Saadia
+also had finalised the Use case diagrams and SRS and SDD.
+
+Haider and Saif made significant progress by establishing the server enviroment and creating a database, we faced some challanges when 
+connecting the front end to the backend, so despite the progress, it is not yet fully functional.
+
+as a whole we are very delighted with the progress being made, by each member, especially when taking into account some of the challenges faced,
+
+
+
+
+
+
+
+
+
+
+
 
