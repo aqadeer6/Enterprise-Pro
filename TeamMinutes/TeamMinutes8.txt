@@ -17,6 +17,7 @@ Haider and Saif made significant progress by establishing the server enviroment 
 connecting the front end to the backend, so despite the progress, it is not yet fully functional.
 
 as a whole we are very delighted with the progress being made, by each member, especially when taking into account some of the challenges faced,
+the prototype is now ready for submission.
 
 
 
