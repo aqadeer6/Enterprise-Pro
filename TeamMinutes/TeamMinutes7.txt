@@ -10,7 +10,7 @@ Start implementing features such as form validation, password recovery, and emai
 
 Daniyal , Qais And Sadia Review the Gantt chart to ensure milestones and deadlines are still on track.
 Update the chart based on any adjustments or new tasks that arise.
-Cleaned up Use case and Class diagrams as they were missing some details from previous work. 
+Cleaned up Use case diagrams as they were missing some details from previous work. 
 
 Haider and Saif Began setting up the server environment and database.
 Develop basic API endpoints for the login and signup functionality.
