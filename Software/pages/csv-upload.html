@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bradford Council | CSV Upload</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+</head>
+
+<body>
+
+<nav>
+
+<ul>
+
+<a href="../index.html" target="_blank"><img id="logo" src="../img/logo.png" alt="Bradford Council Logo"></a>
+
+<li><a href="../index.html" onclick="showSection('home')" tabindex="0">Home</a></li>
+
+<li class="user-link csv-link" style="display: none;"><a href="csv-upload.html" tabindex="0">CSV Upload</a></li>
+
+<li class="user-link gis-link" style="display: none;"><a href="gis-mapping.html" tabindex="0">GIS Mapping</a></li>
+
+<li class="admin-link" style="display: none;"><a href="admin.html" tabindex="0">Admin</a></li>
+
+<li class="user-profile" id="userProfile">
+
+<a onclick="toggleDropdown(event)" tabindex="0" aria-label="Account Menu">Account</a>
+
+<div class="dropdown" id="profileDropdown" role="menu" aria-label="User Menu" style="display: none;">
+
+<a href="edit-profile.html" onclick="closeDropdown(event)" tabindex="0" role="menuitem" aria-label="Edit Profile">Edit Profile</a>
+
+<a href="#" onclick="alert('Logged Out'); logout(); closeDropdown(event)" tabindex="0" role="menuitem" aria-label="Logout">Logout</a>
+
+</div>
+
+</li>
+
+<li class="notification-bell" id="notificationBell" onclick="toggleNotifications()" tabindex="0" style="display: none;">
+
+<span>3</span>
+
+<div class="notifications" id="notifications" role="alert" aria-label="Notifications">
+
+<p>New asset added!</p>
+
+<p>CSV upload completed.</p>
+
+<p>System update available.</p>
+
+</div>
+
+</li>
+
+<li><button id="contrast-toggle" onclick="toggleContrast()" tabindex="0">High Contrast</button></li>
+
+</ul>
+
+</nav>
+
+
+<div id="content">
+
+<!-- CSV Upload Section -->
+
+<section id="csv-upload" class="section active">
+
+<div class="csv-container">
+
+<h2>Upload CSV Data</h2>
+
+<input type="file" id="csvFile" accept=".csv" tabindex="0" aria-label="Upload CSV File">
+
+<button onclick="showCSVPreview()" tabindex="0" aria-label="Preview CSV">Preview</button>
+
+<button onclick="uploadCSV()" id="upload-button" tabindex="0" aria-label="Upload CSV">Upload</button>
+
+<div id="csv-preview" style="display: none;" role="region" aria-label="CSV Preview">
+
+<h3>CSV Preview</h3>
+
+<table id="preview-table" role="table" aria-label="CSV Data Preview"></table>
+
+<button onclick="submitCSV()" tabindex="0" aria-label="Submit CSV">Submit</button>
+
+<button onclick="cancelPreview()" tabindex="0" aria-label="Cancel Preview">Cancel</button>
+
+<button onclick="modifyData()" tabindex="0" aria-label="Modify Data">Modify Data</button>
+
+</div>
+
+<div id="individual-upload" style="display: none;" role="region" aria-label="Individual Asset Upload">
+
+<h3>Individual Asset Upload</h3>
+
+<input type="text" placeholder="Asset Name" id="asset-name" tabindex="0" aria-label="Asset Name">
+
+<input type="text" placeholder="Latitude" id="asset-lat" tabindex="0" aria-label="Latitude">
+
+<input type="text" placeholder="Longitude" id="asset-lon" tabindex="0" aria-label="Longitude">
+
+<button onclick="uploadIndividualAsset()" tabindex="0" aria-label="Upload Individual Asset">Upload</button>
+
+<button onclick="cancelIndividualUpload()" tabindex="0" aria-label="Cancel Individual Upload">Cancel</button>
+
+</div>
+
+<p id="csv-status" role="status" aria-live="polite"></p>
+
+</div>
+
+</section>
+
+</div>
+
+
+<footer>
+
+<p>© 2025 Bradford Council. All rights reserved.</p>
+
+<p>Council Switchboard: 01274 432111</p>
+
+<p>Council Address: Britannia House, Hall Ings, Bradford BD1 1HX</p>
+
+</footer>
+
+
+<script src="../js/main.js"></script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</body>
+
+</html>

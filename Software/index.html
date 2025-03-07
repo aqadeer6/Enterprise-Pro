@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bradford Council | Asset Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <nav>
+        <ul>
+            <a href="https://www.bradford.gov.uk/" target="_blank"><img id="logo" src="img/logo.png"alt="Bradford Council Logo"> </a>
+            <li><a href="index.html" onclick="showSection('home')" tabindex="0">Home</a></li>
+            <li class="user-link csv-link" style="display: none;"><a href="pages/csv-upload.html" onclick="showSection('csv-upload')" tabindex="0">CSV Upload</a></li>
+            <li class="user-link gis-link" style="display: none;"><a href="pages/gis-mapping.html" onclick="showSection('gis-mapping')" tabindex="0">GIS Mapping</a></li>
+            <li class="admin-link" style="display: none;"><a href="pages/admin.html" onclick="showSection('admin')" tabindex="0">Admin</a></li>
+            <li class="user-profile" id="userProfile">
+                <a href="#" onclick="toggleDropdown(event)" tabindex="0" aria-label="Account Menu">Account</a>
+                <div class="dropdown" id="profileDropdown" role="menu" aria-label="User Menu" style="display: none;">
+                    <a href="#" onclick="showSection('edit-profile'); closeDropdown(event)" tabindex="0" role="menuitem" aria-label="Edit Profile">Edit Profile</a>
+                    <a href="#" onclick="logout(); closeDropdown(event)" tabindex="0" role="menuitem" aria-label="Logout">Logout</a>
+                </div>
+            </li>
+            <li class="notification-bell" id="notificationBell" onclick="toggleNotifications()" tabindex="0" style="display: none;">
+                🔔 <span>3</span>
+                <div class="notifications" id="notifications" role="alert" aria-label="Notifications">
+                    <p>New asset added!</p>
+                    <p>CSV upload completed.</p>
+                    <p>System update available.</p>
+                </div>
+            </li>
+            <li><button id="contrast-toggle" onclick="toggleContrast()" tabindex="0">High Contrast</button></li>
+        </ul>
+    </nav>
+
+    <!-- Modal for Email Verification (kept, as it’s separate) -->
+    <div id="verify-modal" class="modal" style="display: none;" role="dialog" aria-labelledby="verify-modal-title">
+        <div class="modal-content">
+            <h3 id="verify-modal-title">Email Verification</h3>
+            <p>Check your email for a verification code</p>
+            <input type="text" id="verify-code" aria-label="Verification Code" tabindex="0">
+            <button onclick="verifyEmail()" tabindex="0" aria-label="Verify Email">Verify</button>
+        </div>
+    </div>
+
+    <div id="content">
+        <section id="home" class="section active">
+            <h2>Welcome to Bradford Council</h2>
+            <p>Manage assets, locations, and resources effectively.</p>
+            <div class="container" id="login-box" role="region" aria-label="Login Form" style="display: block; max-width: 400px;">
+                <h2 role="heading" aria-level="2">Login</h2>
+                <div class="input-wrapper">
+                    <input type="text" placeholder="Email/Username" required aria-required="true" aria-label="Email or Username" id="login-credentials" tabindex="0" onkeydown="if(event.key === 'Enter') login();">
+                    <div class="error-message" id="login-error" role="alert">Enter a valid email or username (e.g., must include @ for email)</div>
+                </div>
+                <div class="input-wrapper">
+                    <input type="password" placeholder="Password" required aria-required="true" aria-label="Password" id="login-password" tabindex="0" onkeydown="if(event.key === 'Enter') login();">
+                    <div class="error-message" id="password-error" role="alert">Password must be at least 8 characters with an uppercase letter and a number</div>
+                </div>
+                <button onclick="login()" tabindex="0" aria-label="Login Button">Login</button>
+                <button onclick="showSignup()" tabindex="0" aria-label="Sign Up Button">Sign Up</button>
+                <p class="toggle" onclick="showForgotPassword()" tabindex="0" aria-label="Forgot Password Link">Forgot Password?</p>
+            </div>
+            <div class="container" id="signup-box" style="display: none;" role="region" aria-label="Sign Up Form">
+                <h2 role="heading" aria-level="2">Sign Up</h2>
+                <input type="text" placeholder="Username" required aria-required="true" aria-label="Username" id="signup-username" tabindex="0" onkeydown="if(event.key === 'Enter') signup();">
+                <div class="input-wrapper">
+                    <input type="text" placeholder="Email" required aria-required="true" aria-label="Email" id="signup-email" tabindex="0" onkeydown="if(event.key === 'Enter') signup();">
+                    <div class="error-message" id="signup-error" role="alert">Enter a valid email address (e.g., must include @)</div>
+                </div>
+                <div class="input-wrapper">
+                    <input type="password" placeholder="Password" required aria-required="true" aria-label="Password" id="signup-password" tabindex="0" onkeydown="if(event.key === 'Enter') signup();">
+                    <div class="error-message" id="signup-password-error" role="alert">Password must be at least 8 characters with an uppercase letter and a number</div>
+                </div>
+                <input type="password" placeholder="Confirm Password" required aria-required="true" aria-label="Confirm Password" id="signup-confirm-password" tabindex="0" onkeydown="if(event.key === 'Enter') signup();">
+                <button onclick="signup()" tabindex="0" aria-label="Sign Up Button">Sign Up</button>
+                <p class="toggle" onclick="showLogin()" tabindex="0" aria-label="Back to Login Link">Back to Login</p>
+            </div>
+            <div class="container" id="forgot-box" style="display: none;" role="region" aria-label="Forgot Password Form">
+                <h2 role="heading" aria-level="2">Forgot Password</h2>
+                <input type="email" placeholder="Enter your email" required aria-required="true" aria-label="Email" id="forgot-email" tabindex="0" onkeydown="if(event.key === 'Enter') resetPassword();">
+                <button onclick="resetPassword()" tabindex="0" aria-label="Reset Password Button">Reset Password</button>
+                <p class="toggle" onclick="showLogin()" tabindex="0" aria-label="Back to Login Link">Back to Login</p>
+            </div>
+        </section>
+
+        <section id="csv-upload" class="section" style="display: none;">
+            <div class="csv-container">
+                <h2>Upload CSV Data</h2>
+                <input type="file" id="csvFile" accept=".csv" tabindex="0" aria-label="Upload CSV File">
+                <button onclick="showCSVPreview()" tabindex="0" aria-label="Preview CSV">Preview</button>
+                <button onclick="uploadCSV()" id="upload-button" tabindex="0" aria-label="Upload CSV">Upload</button>
+                <div id="csv-preview" style="display: none;" role="region" aria-label="CSV Preview">
+                    <h3>CSV Preview</h3>
+                    <table id="preview-table" role="table" aria-label="CSV Data Preview"></table>
+                    <button onclick="submitCSV()" tabindex="0" aria-label="Submit CSV">Submit</button>
+                    <button onclick="cancelPreview()" tabindex="0" aria-label="Cancel Preview">Cancel</button>
+                    <button onclick="modifyData()" tabindex="0" aria-label="Modify Data">Modify Data</button>
+                </div>
+                <div id="individual-upload" style="display: none;" role="region" aria-label="Individual Asset Upload">
+                    <h3>Individual Asset Upload</h3>
+                    <input type="text" placeholder="Asset Name" id="asset-name" tabindex="0" aria-label="Asset Name">
+                    <input type="text" placeholder="Latitude" id="asset-lat" tabindex="0" aria-label="Latitude">
+                    <input type="text" placeholder="Longitude" id="asset-lon" tabindex="0" aria-label="Longitude">
+                    <button onclick="uploadIndividualAsset()" tabindex="0" aria-label="Upload Individual Asset">Upload</button>
+                    <button onclick="cancelIndividualUpload()" tabindex="0" aria-label="Cancel Individual Upload">Cancel</button>
+                </div>
+                <p id="csv-status" role="status" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <section id="gis-mapping" class="section" style="display: none;">
+            <h2>GIS Mapping</h2>
+            <div id="map" style="height: 400px;"></div>
+            <div id="layer-controls">
+                <input type="checkbox" id="schools" onchange="toggleLayer('schools')" checked tabindex="0">
+                <label for="schools">Schools</label>
+                <input type="checkbox" id="hospitals" onchange="toggleLayer('hospitals')" checked tabindex="0">
+                <label for="hospitals">Hospitals</label>
+            </div>
+        </section>
+
+        <section id="admin" class="section" style="display: none;">
+            <div class="admin-container">
+                <h2>Admin Panel</h2>
+                <p>CSV Upload: Manage datasets.</p>
+                <p>GIS Mapping: View and manage GIS data.</p>
+                <h3>Pending User Approvals</h3>
+                <table id="admin-approval-table" role="table" aria-label="Pending User Approvals">
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                </table>
+                <h3>Change User Roles</h3>
+                <div class="input-wrapper">
+                    <input type="text" placeholder="Username" required aria-required="true" aria-label="Username" id="change-role-username" tabindex="0">
+                    <select id="role-select" aria-label="Select Role" tabindex="0">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    <button onclick="changeUserRole()" tabindex="0" aria-label="Change User Role">Change Role</button>
+                </div>
+                <button onclick="showLogs()" tabindex="0" aria-label="View Logs">View Logs</button>
+                <button onclick="showCSVData()" tabindex="0" aria-label="View CSV Data">View CSV Data</button>
+                <button onclick="showGISData()" tabindex="0" aria-label="View GIS Data">View GIS Data</button>
+                <button onclick="alert('Managing Permissions...')" tabindex="0" aria-label="Manage Permissions">Manage Permissions</button>
+                <button onclick="alert('Generating Report...')" tabindex="0" aria-label="Generate Report">Generate Report</button>
+                <button onclick="adminLogout()" id="admin-logout" style="display: none;" tabindex="0" aria-label="Admin Logout">Logout</button>
+            </div>
+        </section>
+
+        <section id="edit-profile" class="section" style="display: none;">
+            <div class="container" role="region" aria-label="Edit Profile Form">
+                <h2 role="heading" aria-level="2">Edit Profile</h2>
+                <div class="input-wrapper">
+                    <input type="text" placeholder="First Name" required aria-required="true" aria-label="First Name" id="edit-first-name" tabindex="0" value="John">
+                    <div class="error-message" id="edit-first-name-error" role="alert">Enter a valid first name</div>
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" placeholder="Last Name" required aria-required="true" aria-label="Last Name" id="edit-last-name" tabindex="0" value="Doe">
+                    <div class="error-message" id="edit-last-name-error" role="alert">Enter a valid last name</div>
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" placeholder="Username" required aria-required="true" aria-label="Username" id="edit-username" tabindex="0" value="hello.user">
+                    <div class="error-message" id="edit-username-error" role="alert">Enter a valid username</div>
+                </div>
+                <div class="input-wrapper">
+                    <input type="email" placeholder="Email" required aria-required="true" aria-label="Email" id="edit-email" tabindex="0" value="hello@gmail.com">
+                    <div class="error-message" id="edit-email-error" role="alert">Enter a valid email address (e.g., must include @)</div>
+                </div>
+                <h3>Change Password</h3>
+                <div class="input-wrapper">
+                    <input type="password" placeholder="Current Password" required aria-required="true" aria-label="Current Password" id="edit-current-password" tabindex="0">
+                    <div class="error-message" id="edit-current-password-error" role="alert">Enter your current password</div>
+                </div>
+                <div class="input-wrapper">
+                    <input type="password" placeholder="New Password" required aria-required="true" aria-label="New Password" id="edit-new-password" tabindex="0">
+                    <div class="error-message" id="edit-new-password-error" role="alert">New password must be at least 8 characters with an uppercase letter and a number</div>
+                </div>
+                <div class="input-wrapper">
+                    <input type="password" placeholder="Confirm New Password" required aria-required="true" aria-label="Confirm New Password" id="edit-confirm-password" tabindex="0">
+                    <div class="error-message" id="edit-confirm-password-error" role="alert">Passwords must match</div>
+                </div>
+                <button onclick="saveProfile()" tabindex="0" aria-label="Save Profile">Save</button>
+                <button onclick="cancelEditProfile()" tabindex="0" aria-label="Cancel Edit Profile">Cancel</button>
+            </div>
+        </section>
+
+        <section id="privacy-policy" class="section" style="display: none;">
+            <h2>Privacy Policy</h2>
+            <p>Bradford Council is committed to protecting your privacy. We collect personal information to provide services and improve our offerings. Your data is stored securely and used in accordance with GDPR regulations. For more details, contact our Data Protection Officer at dpo@bradford.gov.uk.</p>
+            <button onclick="showSection('home')" tabindex="0" aria-label="Back to Home">Back to Home</button>
+        </section>
+    </div>
+
+    <footer>
+        <p>Council Switchboard: 01274 432111</p>
+        <p>Council Address: Britannia House, Hall Ings, Bradford BD1 1HX</p>
+        <button onclick="window.location.href = 'pages/privacy-policy.html'" tabindex="0" aria-label="View Privacy Policy">Privacy Policy</button>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papa.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

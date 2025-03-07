@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bradford Council | GIS Mapping</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+</head>
+
+<body>
+
+<nav>
+
+<ul>
+
+<a href="../index.html" target="_blank"><img id="logo" src="../img/logo.png" alt="Bradford Council Logo"></a>
+
+<li><a href="../index.html" onclick="showSection('home')" tabindex="0">Home</a></li>
+
+<li class="user-link csv-link" style="display: none;"><a href="csv-upload.html" tabindex="0">CSV Upload</a></li>
+
+<li class="user-link gis-link" style="display: none;"><a href="gis-mapping.html" tabindex="0">GIS Mapping</a></li>
+
+<li class="admin-link" style="display: none;"><a href="admin.html" tabindex="0">Admin</a></li>
+
+<li class="user-profile" id="userProfile">
+
+<a onclick="toggleDropdown(event)" tabindex="0" aria-label="Account Menu">Account</a>
+
+<div class="dropdown" id="profileDropdown" role="menu" aria-label="User Menu" style="display: none;">
+
+<a href="edit-profile.html" onclick="closeDropdown(event)" tabindex="0" role="menuitem" aria-label="Edit Profile">Edit Profile</a>
+
+<a href="#" onclick="alert('Logged Out'); logout(); closeDropdown(event)" tabindex="0" role="menuitem" aria-label="Logout">Logout</a>
+
+</div>
+
+</li>
+
+<li class="notification-bell" id="notificationBell" onclick="toggleNotifications()" tabindex="0" style="display: none;">
+
+<span>3</span>
+
+<div class="notifications" id="notifications" role="alert" aria-label="Notifications">
+
+<p>New asset added!</p>
+
+<p>CSV upload completed.</p>
+
+<p>System update available.</p>
+
+</div>
+
+</li>
+
+<li><button id="contrast-toggle" onclick="toggleContrast()" tabindex="0">High Contrast</button></li>
+
+</ul>
+
+</nav>
+
+
+<div id="content">
+
+<!-- GIS Mapping Section -->
+
+<section id="gis-mapping" class="section active">
+
+<h2>GIS Mapping</h2>
+
+<div id="layer-controls" role="group" aria-label="Map Layer Controls">
+
+<label><input type="checkbox" value="schools" onchange="toggleLayer('schools')" tabindex="0" aria-label="Toggle Schools Layer"> Schools</label>
+
+<label><input type="checkbox" value="hospitals" onchange="toggleLayer('hospitals')" tabindex="0" aria-label="Toggle Hospitals Layer"> Hospitals</label>
+
+</div>
+
+<button onclick="showShareModal()" tabindex="0" aria-label="Share Dataset">Share Dataset</button>
+
+<div id="map" role="application" aria-label="Interactive GIS Map"></div>
+
+</section>
+
+</div>
+
+
+<footer>
+
+<p>© 2025 Bradford Council. All rights reserved.</p>
+
+<p>Council Switchboard: 01274 432111</p>
+
+<p>Council Address: Britannia House, Hall Ings, Bradford BD1 1HX</p>
+
+</footer>
+
+
+<script src="../js/main.js"></script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bradford Council | Edit Profile</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+</head>
+
+<body>
+
+<nav>
+
+<ul>
+
+<a href="../index.html" target="_blank"><img id="logo" src="../img/logo.png" alt="Bradford Council Logo"></a>
+
+<li><a href="../index.html" onclick="showSection('home')" tabindex="0">Home</a></li>
+
+<li class="user-link csv-link" style="display: none;"><a href="c
+
+<li class="user-link gis-link" style="display: none;"><a href="gis-mapping.html" tabindex="0">GIS Mapping</a></li>
+
+<li class="admin-link" style="display: none;"><a href="admin.html" tabindex="0">Admin</a></li>
+
+<li class="user-profile" id="userProfile">
+
+<a onclick="toggleDropdown(event)" tabindex="0" aria-label="Account Menu">Account</a>
+
+<div class="dropdown" id="profileDropdown" role="menu" aria-label="User Menu" style="display: none;">
+
+<a href="edit-profile.html" onclick="closeDropdown(event)" tabindex="0" role="menuitem" aria-label="Edit Profile">Edit Profile</a>
+
+<a href="#" onclick="alert('Logged Out'); logout(); closeDropdown(event)" tabindex="0" role="menuitem" aria-label="Logout">Logout</a>
+
+</div>
+
+</li>
+
+<li class="notification-bell" id="notificationBell" onclick="toggleNotifications()" tabindex="0" style="display: none;">
+
+<span>3</span>
+
+<div class="notifications" id="notifications" role="alert" aria-label="Notifications">
+
+<p>New asset added!</p>
+
+<p>CSV upload completed.</p>
+
+<p>System update available.</p>
+
+</div>
+
+</li>
+
+<li><button id="contrast-toggle" onclick="toggleContrast()" tabindex="0">High Contrast</button></li>
+
+</ul>
+
+</nav>
+
+
+<div id="content">
+
+<!-- Edit Profile Section -->
+
+<section id="edit-profile" class="section active">
+
+<div class="container" role="region" aria-label="Edit Profile Form">
+
+<h2 role="heading" aria-level="2">Edit Profile</h2>
+
+<div class="input-wrapper">
+
+<input type="text" placeholder="First Name" required aria-required="true" aria-label="First Name" id="edit-first-name" tabindex="0" value="John">
+
+<div class="error-message" id="edit-first-name-error" role="alert">Enter a valid first name</div>
+
+</div>
+
+<div class="input-wrapper">
+
+<input type="text" placeholder="Last Name" required aria-required="true" aria-label="Last Name" id="edit-last-name" tabindex="0" value="Doe">
+
+<div class="error-message" id="edit-last-name-error" role="alert">Enter a valid last name</div>
+
+</div>
+
+<div class="input-wrapper">
+
+<input type="text" placeholder="Username" required aria-required="true" aria-label="Username" id="edit-username" tabindex="0" value="hello.user">
+
+<div class="error-message" id="edit-username-error" role="alert">Enter a valid username</div>
+
+</div>
+
+<div class="input-wrapper">
+
+<input type="email" placeholder="Email" required aria-required="true" aria-label="Email" id="edit-email" tabindex="0" value="hello@gmail.com">
+
+<div class="error-message" id="edit-email-error" role="alert">Enter a valid email address (e.g., must include @)</div>
+
+</div>
+
+<h3>Change Password</h3>
+
+<div class="input-wrapper">
+
+<input type="password" placeholder="Current Password" required aria-required="true" aria-label="Current Password" id="edit-current-password" tabindex="0">
+
+<div class="error-message" id="edit-current-password-error" role="alert">Enter your current password</div>
+
+</div>
+
+<div class="input-wrapper">
+
+<input type="password" placeholder="New Password" aria-label="New Password" id="edit-new-password" tabindex="0">
+
+<div class="error-message" id="edit-new-password-error" role="alert">New password must be at least 8 characters with an uppercase letter and a number</div>
+
+</div>
+
+<div class="input-wrapper">
+
+<input type="password" placeholder="Confirm New Password" aria-label="Confirm New Password" id="edit-confirm-password" tabindex="0">
+
+<div class="error-message" id="edit-confirm-password-error" role="alert">Passwords must match</div>
+
+</div>
+
+<button onclick="saveProfile()" tabindex="0" aria-label="Save Profile Changes">Save</button>
+
+<button onclick="cancelEditProfile()" tabindex="0" aria-label="Cancel Profile Changes">Cancel</button>
+
+</div>
+
+</section>
+
+</div>
+
+
+<footer>
+
+<p>© 2025 Bradford Council. All rights reserved.</p>
+
+<p>Council Switchboard: 01274 432111</p>
+
+<p>Council Address: Britannia House, Hall Ings, Bradford BD1 1HX</p>
+
+</footer>
+
+
+<script src="../js/main.js"></script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</body>
+
+</html>
