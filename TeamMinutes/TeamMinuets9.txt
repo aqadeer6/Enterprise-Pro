@@ -8,4 +8,8 @@ Date: 11/03/2025
 Today we had a meeting with the client, after the meeting all the team members sat down.
 we made a few ammendments to the front end user interface as some details were not fully aligned
 with the final contract, we reviewed this and started working on it.
-we also discussed the backend of the website as in the meeting the client specified which database we should use hence we had to make an ammendment to the contract and get it re-signed. Using the new database we will now work on backend again and this time divide the work accordingly.
+
+we also discussed the backend of the website as in the meeting the client specified which database
+we should use hence we had to make an ammendment to the contract and get it re-signed. Using the
+new database we will now work on backend again and this time divide the work accordingly to each team member.
+
