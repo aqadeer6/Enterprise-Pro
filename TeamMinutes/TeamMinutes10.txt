@@ -1,1 +1,16 @@
+Meeting 10:
 
+Host: Abdul Qadeer
+
+Participants: Qais Javed, Haider Ali Malik, Daniyal Ahmed, Saadia Ali, Muhammad Ghufran, Mohammad Saif Ullah
+Absentees: none
+
+Time: 15:00 - 16:00
+
+Date: 15/03/2025
+
+The main purpose of this meeting was to assign tasks to each member following the release of Assignment 2. Since the assignment primarily involves testing the website and documentation, which can only be done once the website is fully functional, we faced some challenges.
+
+Previously, each team member was assigned a specific part of the backend code to develop and upload via VS Code. However, some members encountered issues with commits. To address this, we had a detailed discussion and worked together to resolve the problem.
+
+Due to the backend not being fully uploaded and the website incomplete, we decided not to assign tasks for now and instead focus on completing the development. The team leader set a deadline of March 20th for all codes to be completed and submitted so we could proceed with assigning the next set of tasks.
