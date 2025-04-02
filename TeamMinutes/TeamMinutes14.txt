@@ -1,1 +1,16 @@
+Meeting 14:
+Host: Abdul Qadeer
+Participants: Qais Javed, Daniyal Ahmed, Saadia Ali, Mohammad Saif Ullah , Haider Ali Malik, Muhammad Ghufran 
+Absentees: none 
+Time: 14:00 - 15:00
+Date: 01/04/2025
 
+
+
+Todays meeting was checking up on every member so see if they have completed the task allocated to them .
+Every member was on track with the deadline 
+Qadeer , Qais , Saif have been working on the unit testing and re on track to make the deadline set out, 
+Saadi along with updating the team minutes has been working on the documntation,
+Haider , Ghuffran , Daniyal have fixed errors found in the code inspection and are continuing with that task along with the report .
+
+The final deadline is 5th of april.
