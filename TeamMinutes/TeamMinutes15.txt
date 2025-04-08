@@ -1,0 +1,25 @@
+Meeting 15:
+Host: Saadia Ali
+Participants: Qais Javed, Daniyal Ahmed, Mohammad Saif Ullah, Haider Ali Malik, Muhammad Ghufran, Abdul Qadeer
+Absentees: none 
+Time: 15:00 - 16:00
+Date: 07/04/2025
+
+
+
+
+This meeting was arranged to check the progress from the last meeting. Every member is on track with their tasks
+Last meetings deadline of 5th of April had to be extended to 6th of April as we had some difficulty, with the unit testing
+and acceptance testing, so Qadeer, Qais, and Saif requested in the group if the deadline could be brought forward to the 7th.
+Saadia has been helping out with the documentation as well as hosting and updating the team minutes.
+Haider, Ghuffran and Danyial have cleaned up some minor errors found in the code, as they have completed 
+the code inspection documentation and are almost done with the report.
+The next deadline is the 9th of April and for that deadline we want to have completed everything, and pushed all our code 
+to the main branch in github, ready for submission.
+The next meeting is schedualed to be the last one, before submission.
+
+
+
+
+
+
