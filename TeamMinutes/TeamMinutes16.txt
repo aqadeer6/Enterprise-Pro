@@ -7,7 +7,7 @@ Date: 10/04/2025
 
 
 
-As schedualled, this was the last meeting, and the purpose of this meeting wasa to tie everything together, from our
+As scheduled, this was the last meeting, and the purpose of this meeting was to tie everything together, from our
 testing files, to our code documentation.
 Qais, Qadeer, and Saif had completed the acceptance testing, and unit testing.
 The code for testing has all beeen pushed to the main branch of github.
