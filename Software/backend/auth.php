@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute([$email, $token, $expires_at, $token, $expires_at]);
 
             // Email the reset link to the user
-            $reset_link = "http://localhost/Software/reset_password.php?token=$token"; // Updated to localhost
+            $reset_link = "http://localhost:8083/Software/reset_password.php?token=$token"; // Updated to localhost
             $subject = "Password Reset Request";
             $body = "<h2>Password Reset</h2>
                     <p>We received a request to reset your password. Click the link below to reset it:</p>
